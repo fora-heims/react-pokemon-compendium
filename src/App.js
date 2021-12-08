@@ -11,6 +11,7 @@ function App() {
 
   useEffect(() => {
     const fetchdata = async () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       const pokemonData = await fetchPokemon(query);
       setPokemon(pokemonData);
       setLoading(false);
@@ -18,6 +19,7 @@ function App() {
     if (loading) {
       fetchdata();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
   function clickSearch() {
