@@ -1,5 +1,30 @@
+body {
+  background-color: magenta;
+}
+
+header {
+  font-family: 'Courier New', Courier, monospace;
+  color: yellowgreen;
+  font-weight: 900;
+  font-size: 2rem;
+  text-align: end;
+}
+
+footer {
+  font-family: 'Courier New', Courier, monospace;
+  color: yellowgreen;
+  font-weight: 900;
+  font-size: 1rem;
+}
+
 .App {
+  margin: 40px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-logo {
