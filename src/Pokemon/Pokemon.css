@@ -11,8 +11,13 @@
   height: 150px;
 }
 
+.name {
+  font-size: 10px;
+  font-weight: 900;
+}
+
 img {
-  width: 100px;
+  width: 90px;
 }
 
 .pokemon:hover {

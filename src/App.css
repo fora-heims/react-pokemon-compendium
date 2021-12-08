@@ -15,6 +15,15 @@ footer {
   color: yellowgreen;
   font-weight: 900;
   font-size: 1rem;
+  bottom: 0px;
+}
+
+.filter {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 .App {
