@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     const fetchdata = async () => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      const pokemonData = await fetchPokemon(query);
+      const pokemonData = await fetchPokemon(query, type);
       setPokemon(pokemonData);
       setLoading(false);
     };
