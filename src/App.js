@@ -8,12 +8,15 @@ function App() {
   const [pokemon, setPokemon] = useState([]);
   const [type, setType] = useState('all');
   const [query, setQuery] = useState('');
+  // const [count, setCount] = useState(0);
+  // const [pages, setPages] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchdata = async () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      const pokemonData = await fetchPokemon(query, type);
-      setPokemon(pokemonData);
+      const pokemonData = await fetchPokemon(query, type, page);
+
+      setPokemon(pokemonData.results);
       setLoading(false);
     };
     if (loading) {
@@ -23,6 +26,17 @@ function App() {
   }, [loading]);
 
   function clickSearch() {
+    setLoading(true);
+    // console.log(pages);
+  }
+
+  function handleNext() {
+    setPage((prev) => ++prev);
+    setLoading(true);
+  }
+
+  function handlePrev() {
+    setPage((prev) => --prev);
     setLoading(true);
   }
 
@@ -63,6 +77,16 @@ function App() {
         {loading && <span>...loading</span>}
         {!loading && pokemon.map((poke) => <Pokemon key={poke.id} {...poke} />)}
       </main>
+      <div className="box">
+        <span>Page: {page}</span>
+        <button onClick={handlePrev} className="prev">
+          Previous Page
+        </button>
+        <button onClick={handleNext} className="next">
+          Next Page
+        </button>
+      </div>
+
       <footer>
         This app was built to practice building react apps and accessing data from API&apos;s
       </footer>
