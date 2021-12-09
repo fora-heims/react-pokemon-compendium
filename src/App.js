@@ -24,6 +24,7 @@ function App() {
 
   function clickSearch() {
     setLoading(true);
+    setPage(1);
   }
 
   function handleNext() {
