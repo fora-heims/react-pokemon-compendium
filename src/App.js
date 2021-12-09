@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Pokemon from './Pokemon/Pokemon.js';
 import fetchPokemon from './services/pokemon.js';
+import { Button, TextField, Select, MenuItem } from '@mui/material';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -41,34 +42,37 @@ function App() {
     <>
       <header>Pick a Pokemon =3</header>
       <div className="filter">
-        <select value={type} onChange={(e) => setType(e.target.value)}>
-          <option value="all">All</option>
-          <option value="bug">Bug</option>
-          <option value="dark">Dark</option>
-          <option value="dragon">Dragon</option>
-          <option value="electric">Electric</option>
-          <option value="fairy">Fairy</option>
-          <option value="fighting">Fighting</option>
-          <option value="fire">Fire</option>
-          <option value="flying">Flying</option>
-          <option value="ghost">Ghost</option>
-          <option value="grass">Grass</option>
-          <option value="ground">Ground</option>
-          <option value="ice">Ice</option>
-          <option value="normal">Normal</option>
-          <option value="poison">Poison</option>
-          <option value="psychic">Psychic</option>
-          <option value="rock">Rock</option>
-          <option value="steel">Steel</option>
-          <option value="water">Water</option>
-        </select>
-        <input
+        <Select value={type} onChange={(e) => setType(e.target.value)}>
+          <MenuItem value="all">All</MenuItem>
+          <MenuItem value="bug">Bug</MenuItem>
+          <MenuItem value="dark">Dark</MenuItem>
+          <MenuItem value="dragon">Dragon</MenuItem>
+          <MenuItem value="electric">Electric</MenuItem>
+          <MenuItem value="fairy">Fairy</MenuItem>
+          <MenuItem value="fighting">Fighting</MenuItem>
+          <MenuItem value="fire">Fire</MenuItem>
+          <MenuItem value="flying">Flying</MenuItem>
+          <MenuItem value="ghost">Ghost</MenuItem>
+          <MenuItem value="grass">Grass</MenuItem>
+          <MenuItem value="ground">Ground</MenuItem>
+          <MenuItem value="ice">Ice</MenuItem>
+          <MenuItem value="normal">Normal</MenuItem>
+          <MenuItem value="poison">Poison</MenuItem>
+          <MenuItem value="psychic">Psychic</MenuItem>
+          <MenuItem value="rock">Rock</MenuItem>
+          <MenuItem value="steel">Steel</MenuItem>
+          <MenuItem value="water">Water</MenuItem>
+        </Select>
+        <TextField
+          variant="outlined"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           type="text"
           placeholder="Search for a Pokemon"
-        ></input>
-        <button onClick={clickSearch}>Search</button>
+        ></TextField>
+        <Button variant="contained" onClick={clickSearch}>
+          Search
+        </Button>
       </div>
       <main className="App">
         {loading && <span>...loading</span>}

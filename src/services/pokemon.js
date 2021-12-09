@@ -1,4 +1,4 @@
-export default async function fetchPokemon(query, type, page) {
+export default async function fetchPokemon(query, type, page, perPage) {
   const searchParameters = new URLSearchParams();
   searchParameters.set('pokemon', query);
   searchParameters.set('page', page);
