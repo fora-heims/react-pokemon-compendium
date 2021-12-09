@@ -8,8 +8,6 @@ function App() {
   const [pokemon, setPokemon] = useState([]);
   const [type, setType] = useState('all');
   const [query, setQuery] = useState('');
-  // const [count, setCount] = useState(0);
-  // const [pages, setPages] = useState([]);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
@@ -22,12 +20,10 @@ function App() {
     if (loading) {
       fetchdata();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loading]);
+  }, [loading, query, type, page]);
 
   function clickSearch() {
     setLoading(true);
-    // console.log(pages);
   }
 
   function handleNext() {
