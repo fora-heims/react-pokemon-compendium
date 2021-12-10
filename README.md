@@ -14,6 +14,9 @@ This project was initiated using `npx create-react-app`
 - eslint-plugin-react-hooks
 - eslint-plugin-prettier
 - eslint-config-prettier
+- mui/material
+- emotion/react
+- emotion/styled
 
 ## API
 
