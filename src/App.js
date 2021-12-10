@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import Pokemon from './Pokemon/Pokemon.js';
-import fetchPokemon from './services/pokemon.js';
+import { fetchPokemon, fetchType } from './services/pokemon.js';
 import { Button, TextField, Select, MenuItem } from '@mui/material';
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
   const [direction, setDirection] = useState('asc');
+  const [types, setTypes] = useState([]);
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -23,6 +24,15 @@ function App() {
       fetchdata();
     }
   }, [loading, query, type, page, direction]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const pokemonData = await fetchType();
+      const typ = await pokemonData.map((ty) => ty.type);
+      setTypes(typ);
+    };
+    fetchData();
+  }, []);
 
   function clickSearch() {
     setLoading(true);
@@ -39,30 +49,35 @@ function App() {
     setLoading(true);
   }
 
+  function handleSelector(e) {
+    setPage(1);
+    setLoading(true);
+    setType(e.target.value);
+  }
+
+  function handleDesc() {
+    setPage(1);
+    setDirection('desc');
+    setLoading(true);
+  }
+
+  function handleAsc() {
+    setPage(1);
+    setDirection('asc');
+    setLoading(true);
+  }
+
   return (
     <>
-      <header>Pick a Pokemon =3</header>
+      <header>Pokemon Compendium</header>
       <div className="filter">
-        <Select value={type} onChange={(e) => setType(e.target.value)}>
+        <Select value={type} onChange={handleSelector}>
           <MenuItem value="all">All</MenuItem>
-          <MenuItem value="bug">Bug</MenuItem>
-          <MenuItem value="dark">Dark</MenuItem>
-          <MenuItem value="dragon">Dragon</MenuItem>
-          <MenuItem value="electric">Electric</MenuItem>
-          <MenuItem value="fairy">Fairy</MenuItem>
-          <MenuItem value="fighting">Fighting</MenuItem>
-          <MenuItem value="fire">Fire</MenuItem>
-          <MenuItem value="flying">Flying</MenuItem>
-          <MenuItem value="ghost">Ghost</MenuItem>
-          <MenuItem value="grass">Grass</MenuItem>
-          <MenuItem value="ground">Ground</MenuItem>
-          <MenuItem value="ice">Ice</MenuItem>
-          <MenuItem value="normal">Normal</MenuItem>
-          <MenuItem value="poison">Poison</MenuItem>
-          <MenuItem value="psychic">Psychic</MenuItem>
-          <MenuItem value="rock">Rock</MenuItem>
-          <MenuItem value="steel">Steel</MenuItem>
-          <MenuItem value="water">Water</MenuItem>
+          {types.map((ty) => (
+            <MenuItem key={ty} value={ty}>
+              {ty}
+            </MenuItem>
+          ))}
         </Select>
         <TextField
           variant="outlined"
@@ -74,8 +89,12 @@ function App() {
         <Button variant="contained" onClick={clickSearch}>
           Search
         </Button>
-        <button onClick={() => setDirection('desc')}>Descending</button>
-        <button onClick={() => setDirection('asc')}>Ascending</button>
+        <Button variant="contained" onClick={handleAsc}>
+          Ascending
+        </Button>
+        <Button variant="contained" onClick={handleDesc}>
+          Descending
+        </Button>
       </div>
       <main className="App">
         {loading && <span>...loading</span>}
@@ -83,12 +102,16 @@ function App() {
       </main>
       <div className="box">
         <span>Page: {page}</span>
-        <button onClick={handlePrev} className="prev">
-          Previous Page
-        </button>
-        <button onClick={handleNext} className="next">
-          Next Page
-        </button>
+        {page !== 1 && (
+          <Button variant="contained" onClick={handlePrev} className="prev">
+            Previous Page
+          </Button>
+        )}
+        {pokemon.length === 20 && (
+          <Button variant="contained" onClick={handleNext} className="next">
+            Next Page
+          </Button>
+        )}
       </div>
 
       <footer>

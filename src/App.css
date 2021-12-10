@@ -11,9 +11,9 @@ body {
 }
 
 header {
-  font-family: 'Courier New', Courier, monospace;
-  color: yellowgreen;
-  font-weight: 900;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #6e1b6a;
+  font-weight: 600;
   font-size: 2rem;
   text-align: center;
   margin-top: 15px;
@@ -22,7 +22,7 @@ header {
 footer {
   position: fixed;
   font-family: 'Courier New', Courier, monospace;
-  color: yellowgreen;
+  color: #6e1b6a;
   font-weight: 900;
   font-size: 1rem;
   bottom: 0px;

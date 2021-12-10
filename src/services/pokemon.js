@@ -1,4 +1,4 @@
-export default async function fetchPokemon(query, type, page, direction) {
+export async function fetchPokemon(query, type, page, direction) {
   const searchParameters = new URLSearchParams();
 
   searchParameters.set('pokemon', query);
@@ -11,6 +11,15 @@ export default async function fetchPokemon(query, type, page, direction) {
   const response = await fetch(
     `https://pokedex-alchemy.herokuapp.com/api/pokedex?${searchParameters}`
   );
+
+  const pokeData = await response;
+  const pokemonData = await pokeData.json();
+
+  return pokemonData;
+}
+
+export async function fetchType() {
+  const response = await fetch(`https://pokedex-alchemy.herokuapp.com/api/pokedex/types`);
 
   const pokeData = await response;
   const pokemonData = await pokeData.json();

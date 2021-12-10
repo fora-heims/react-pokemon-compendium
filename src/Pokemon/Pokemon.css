@@ -5,8 +5,9 @@
   justify-content: center;
   font-family: 'Courier New', Courier, monospace;
   font-size: 12px;
-  border: 3px yellowgreen solid;
-  color: black;
+  font-weight: 900;
+  border: 3px #6e1b6a solid;
+  color: #6e1b6a;
   border-radius: 5px;
   width: 130px;
   height: 200px;
@@ -15,7 +16,6 @@
 
 .name {
   font-size: 16px;
-  font-weight: 900;
 }
 
 img {
@@ -24,6 +24,7 @@ img {
 
 .pokemon:hover {
   filter: drop-shadow(8px 8px 8px orange);
+  border-color: yellowgreen;
 }
 
 img:hover {
