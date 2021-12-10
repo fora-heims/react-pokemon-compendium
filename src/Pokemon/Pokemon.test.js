@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 import Pokemon from './Pokemon.js';
 
-test('should render the blog card with title, subtitle, author and text', () => {
+test('', () => {
   const container = render(
     <Pokemon
-      pokemon="considaw"
+      pokemon="considsrtuhsrthsxaw"
       hp="110"
       attack="20"
       defense="40"

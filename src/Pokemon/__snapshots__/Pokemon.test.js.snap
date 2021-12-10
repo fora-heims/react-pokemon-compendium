@@ -1,21 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render the blog card with title, subtitle, author and text 1`] = `
+exports[` 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
+      <a
         class="pokemon"
+        href="https://www.google.com/search?q=considsrtuhsrthsxaw"
+        rel="noreferrer"
+        target="_blank"
       >
         <img
-          alt="considaw"
+          alt="considsrtuhsrthsxaw"
           src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/172.png"
         />
         <span
           class="name"
         >
-          considaw
+          considsrtuhsrthsxaw
         </span>
         <span>
           Type: 
@@ -33,21 +36,24 @@ Object {
           Defense: 
           40
         </span>
-      </div>
+      </a>
     </div>
   </body>,
   "container": <div>
-    <div
+    <a
       class="pokemon"
+      href="https://www.google.com/search?q=considsrtuhsrthsxaw"
+      rel="noreferrer"
+      target="_blank"
     >
       <img
-        alt="considaw"
+        alt="considsrtuhsrthsxaw"
         src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/172.png"
       />
       <span
         class="name"
       >
-        considaw
+        considsrtuhsrthsxaw
       </span>
       <span>
         Type: 
@@ -65,7 +71,7 @@ Object {
         Defense: 
         40
       </span>
-    </div>
+    </a>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

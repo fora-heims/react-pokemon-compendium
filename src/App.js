@@ -10,10 +10,11 @@ function App() {
   const [type, setType] = useState('all');
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
+  const [direction, setDirection] = useState('asc');
 
   useEffect(() => {
     const fetchdata = async () => {
-      const pokemonData = await fetchPokemon(query, type, page);
+      const pokemonData = await fetchPokemon(query, type, page, direction);
 
       setPokemon(pokemonData.results);
       setLoading(false);
@@ -21,7 +22,7 @@ function App() {
     if (loading) {
       fetchdata();
     }
-  }, [loading, query, type, page]);
+  }, [loading, query, type, page, direction]);
 
   function clickSearch() {
     setLoading(true);
@@ -73,6 +74,8 @@ function App() {
         <Button variant="contained" onClick={clickSearch}>
           Search
         </Button>
+        <button onClick={() => setDirection('desc')}>Descending</button>
+        <button onClick={() => setDirection('asc')}>Ascending</button>
       </div>
       <main className="App">
         {loading && <span>...loading</span>}
